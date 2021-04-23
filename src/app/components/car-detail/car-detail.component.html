@@ -1,1 +1,24 @@
-<p>car-detail works!</p>
+<div *ngIf="dataLoaded == false" class="spinner-border text-danger" role="status">
+  <span class="visually-hidden"></span>
+</div>
+
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Model Year</th>
+            <th>Daily Price</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let carDetail of carDetails">
+        <td>{{carDetail.carId}}</td>
+        <td>{{carDetail.carName}}</td>
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.modelYear}}</td>
+        <td>{{carDetail.dailyPrice}}</td>
+    </tr>
+</table>
