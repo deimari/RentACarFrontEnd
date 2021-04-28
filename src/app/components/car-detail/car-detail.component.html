@@ -2,7 +2,16 @@
   <span class="visually-hidden"></span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<div *ngIf="dataLoaded == true" class="mb-3">
+  <label for="filterText" class="form-label">Search Car</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search">
+</div>
+
+<div class="alert alert-info" *ngIf="dataLoaded == true && filterText">
+  Result for "{{filterText}}"
+</div>
+
+<table *ngIf="dataLoaded == true" class="table">
     <thead>
         <tr>
             <th>Id</th>
@@ -13,12 +22,15 @@
             <th>Model Year</th>
         </tr>
     </thead>
-    <tr *ngFor="let carDetail of carDetails">
-        <td>{{carDetail.carId}}</td>
-        <td>{{carDetail.carName}}</td>
-        <td>{{carDetail.brandName}}</td>
-        <td>{{carDetail.colorName}}</td>
-        <td>{{carDetail.dailyPrice}}</td>
-        <td>{{carDetail.modelYear}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let carDetail of carDetails | filter: filterText">
+            <td>{{ carDetail.carId }}</td>
+            <td>{{ carDetail.carName }}</td>
+            <td>{{ carDetail.brandName }}</td>
+            <td>{{ carDetail.colorName }}</td>
+            <td>{{ carDetail.dailyPrice }}</td>
+            <td>{{ carDetail.modelYear }}</td>
+        </tr>
+    </tbody>
+    
 </table>

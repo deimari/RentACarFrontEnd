@@ -22,7 +22,7 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  getBrandClass(brand: Brand){
+  getBrandClass(brand: Brand) {
     if (brand.id == this.currentBrandId) {
       return 'list-group-item active';
     } else {
@@ -38,7 +38,7 @@ export class BrandComponent implements OnInit {
     }
   }
 
-  setCurrentBrandId(brandId: number){
+  setCurrentBrandId(brandId: number) {
     this.currentBrandId = brandId;
   }
 }

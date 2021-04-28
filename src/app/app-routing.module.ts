@@ -5,10 +5,11 @@ import { CustomerComponent } from './components/customer/customer.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarDetailComponent },
+  { path: 'cars', component: CarDetailComponent },
   { path: 'customers', component: CustomerComponent },
-  { path: 'cars/brand/:brandId', component: CarDetailComponent },
-  { path: 'cars/color/:colorId', component: CarDetailComponent },
-  { path: 'cars/cardetail/:carId', component: CarDetailComponent }
+  { path: 'cars/brand/:brandName', component: CarDetailComponent },
+  { path: 'cars/color/:colorName', component: CarDetailComponent },
+  { path: 'cars/cardetail/:carId', component: CarDetailComponent },
 ];
 
 @NgModule({
